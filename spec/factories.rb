@@ -12,10 +12,10 @@ FactoryGirl.define do
   end
   
   factory :book_post do
-    out_title 'Example Title'
-    out_subtitle 'Example Sub-Title'
-    out_genre 'Example Genre'
-    out_summary 'Example Summary'
+    title 'Example Title'
+    subtitle 'Example Sub-Title'
+    genre 'Example Genre'
+    summary 'Example Summary'
     user
   end
 end

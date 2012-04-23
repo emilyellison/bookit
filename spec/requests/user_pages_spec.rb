@@ -56,8 +56,8 @@ describe "user pages" do
   
   describe 'profile page' do
     let(:user) { FactoryGirl.create(:user) }
-    let!(:m1) { FactoryGirl.create(:book_post, user: user, out_title: 'Foo', out_summary: 'Bar') }
-    let!(:m2) { FactoryGirl.create(:book_post, user: user, out_title: 'Bar', out_summary: 'Foo') }
+    let!(:m1) { FactoryGirl.create(:book_post, user: user, title: 'Foo', summary: 'Bar') }
+    let!(:m2) { FactoryGirl.create(:book_post, user: user, title: 'Bar', summary: 'Foo') }
     
     before { visit user_path(user) }
     
@@ -65,8 +65,8 @@ describe "user pages" do
     it { should have_selector('title', text: user.name) }
   
     describe "book posts" do
-      it { should have_content(m1.out_title) }
-      it { should have_content(m2.out_title) }
+      it { should have_content(m1.title) }
+      it { should have_content(m2.title) }
       it { should have_content(user.book_posts.count) }
     end
   end

@@ -1,14 +1,14 @@
 <%= form_for(@book_post) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class='field'>
-		<%= f.label :out_title, 'Title' %>
-		<%= f.text_field :out_title %>
-		<%= f.label :out_title, 'Sub-title' %>
-		<%= f.text_field :out_title %>
-		<%= f.label :out_title, 'Genre' %>
-		<%= f.text_field :out_title %>
-		<%= f.label :out_summary, 'Summary' %>
-		<%= f.text_area :out_summary %>
+		<%= f.label :title, 'Title' %>
+		<%= f.text_field :title %>
+		<%= f.label :subtitle, 'Sub-title' %>
+		<%= f.text_field :subtitle %>
+		<%= f.label :genre, 'Genre' %>
+		<%= f.text_field :genre %>
+		<%= f.label :summary, 'Summary' %>
+		<%= f.text_area :summary %>
 	</div>
 	<br/>
 	<%= f.submit 'Post', class: 'btn btn-large btn-primary' %>

@@ -34,9 +34,9 @@ namespace :db do
     end
     users = User.all(limit: 6)
     50.times do
-      out_title = Faker::Lorem.sentence(1)
-      out_summary = Faker::Lorem.sentence(1)
-      users.each { |user| user.book_posts.create!(out_title: out_title, out_summary: out_summary) }
+      title = Faker::Lorem.sentence(1)
+      summary = Faker::Lorem.sentence(1)
+      users.each { |user| user.book_posts.create!(title: title, summary: summary) }
     end
   end
 end

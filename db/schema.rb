@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423171538) do
+ActiveRecord::Schema.define(:version => 20120423182247) do
 
   create_table "book_posts", :force => true do |t|
-    t.string   "out_title"
-    t.string   "out_subtitle"
-    t.string   "out_genre"
-    t.string   "out_summary"
-    t.date     "out_date"
+    t.string   "title"
+    t.string   "subtitle"
+    t.string   "genre"
+    t.string   "summary"
+    t.date     "release_date"
     t.integer  "user_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false

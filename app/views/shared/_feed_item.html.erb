@@ -3,8 +3,8 @@
 		<%= link_to feed_item.user.name, feed_item.user %>
 	</span>
 	<span class='content'>
-		<%= feed_item.out_title %>
-		<%= feed_item.out_summary %>
+		<%= feed_item.title %>
+		<%= feed_item.summary %>
 	</span>	
 	<span class='timestamp'>
 		Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
@@ -12,6 +12,6 @@
 	<% if current_user?(feed_item.user) %>
 		<%= link_to "Delete", feed_item, method:  :delete,
 	                                   confirm: "Sure about that?",
-	                                   title:   feed_item.out_title %>
+	                                   title:   feed_item.title %>
   <% end %>
 </li>

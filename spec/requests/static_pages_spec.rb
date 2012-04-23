@@ -40,15 +40,15 @@ describe "static pages" do
   describe 'for signed-in users' do
     let(:user) { FactoryGirl.create(:user) }
     before do
-      FactoryGirl.create(:book_post, user: user, out_title: 'Lorem ipsum', out_summary: 'Ipsum lorem' )
-      FactoryGirl.create(:book_post, user: user, out_title: 'Dolor sit amet', out_summary: 'Sit dolor amet' )
+      FactoryGirl.create(:book_post, user: user, title: 'Lorem ipsum', summary: 'Ipsum lorem' )
+      FactoryGirl.create(:book_post, user: user, title: 'Dolor sit amet', summary: 'Sit dolor amet' )
       sign_in user
       visit root_path
     end  
     
     it 'should render the user\'s feed' do
       user.feed.each do |item|
-        page.should have_selector("li##{item.id}", text: item.out_title)
+        page.should have_selector("li##{item.id}", text: item.title)
       end  
     end
   end  

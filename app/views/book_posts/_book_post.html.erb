@@ -1,17 +1,17 @@
 <li>
   <span class="content">
 		<!--List all of your book posts.-->
-		<b><%= book_post.out_title.upcase %></b>
+		<b><%= book_post.title.upcase %></b>
 		<br>				
-		<% if book_post.out_subtitle %>
-			<%= book_post.out_subtitle %>
+		<% if book_post.subtitle %>
+			<%= book_post.subtitle %>
 			<br/>
 		<% end %>	
-		<% if book_post.out_genre %>
-			<%= book_post.out_genre %>
+		<% if book_post.genre %>
+			<%= book_post.genre %>
 			<br/>
 		<% end %>
-		<%= book_post.out_summary %>		
+		<%= book_post.summary %>		
 	</span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(book_post.created_at) %> ago.
@@ -19,6 +19,6 @@
 	<% if current_user?(book_post.user) %>
 		<% link_to 'Delete', book_post, method: :delete,
 																		confirm: 'Sure about that?',
-																		title: book_post.out_title %>
+																		title: book_post.title %>
 	<% end %>
 </li>
