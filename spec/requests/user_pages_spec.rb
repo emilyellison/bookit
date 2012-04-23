@@ -11,7 +11,7 @@ describe "user pages" do
       visit users_path
     end  
     
-    it { should have_selector('title', text: 'BookFollow | Members') }
+    it { should have_selector('title', text: 'BookBits | Members') }
     
     describe 'pagination' do
       before(:all) { 30.times { FactoryGirl.create(:user) } }
@@ -51,7 +51,7 @@ describe "user pages" do
     before { visit signup_path }
     
     it { should have_selector('h1', text: 'Sign Up') }
-    it { should have_selector('title', text: 'BookFollow | Sign Up') }
+    it { should have_selector('title', text: 'BookBits | Sign Up') }
   end
   
   describe 'profile page' do

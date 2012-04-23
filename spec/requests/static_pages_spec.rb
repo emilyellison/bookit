@@ -6,8 +6,8 @@ describe "static pages" do
   describe "home page" do
     before { visit root_path }
     
-    it { should have_selector('h1', text: 'Welcome to BookFollow.') }
-    it { should have_selector('title', text: 'BookFollow') }
+    it { should have_selector('h1', text: 'Welcome to BookBits.') }
+    it { should have_selector('title', text: 'BookBits') }
     
   end
   
@@ -15,7 +15,7 @@ describe "static pages" do
     before { visit help_path }
     
     it { should have_selector('h1', text: 'Help') }
-    it { should have_selector('title', text: 'BookFollow | Help') }
+    it { should have_selector('title', text: 'BookBits | Help') }
     
   end
   
@@ -23,7 +23,7 @@ describe "static pages" do
     before { visit about_path }
     
     it { should have_selector('h1', text: 'About') }
-    it { should have_selector('title', text: 'BookFollow | About') }
+    it { should have_selector('title', text: 'BookBits | About') }
     
   end
   
@@ -34,7 +34,7 @@ describe "static pages" do
     click_link 'Help'
     page.should have_selector 'h1', text: 'Help'
     click_link 'Home'
-    page.should have_selector 'h1', text: 'Welcome to BookFollow.'
+    page.should have_selector 'h1', text: 'Welcome to BookBits.'
   end
   
   describe 'for signed-in users' do

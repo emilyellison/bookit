@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       # Handle a successful save.
       sign_in @user
-      flash[:success] = 'Congrats on becoming a BookFollow member!'
+      flash[:success] = 'Congrats on becoming a BookBits member!'
       redirect_to @user
     else
       render 'new'
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = 'This BookFollow Member has been deleted.'
+    flash[:success] = 'This BookBits Member has been deleted.'
     redirect_to users_path
   end
   
