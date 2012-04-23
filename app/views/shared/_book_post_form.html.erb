@@ -1,15 +1,27 @@
 <%= form_for(@book_post) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
-	<div class='field'>
-		<%= f.label :title, 'Title' %>
-		<%= f.text_field :title %>
-		<%= f.label :subtitle, 'Sub-title' %>
-		<%= f.text_field :subtitle %>
-		<%= f.label :genre, 'Genre' %>
-		<%= f.text_field :genre %>
-		<%= f.label :summary, 'Summary' %>
-		<%= f.text_area :summary %>
+	<div class="accordion" id="accordion2">
+     <div class="accordion-group">
+       <div class="accordion-heading">
+         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+           	Post a Book
+         </a>
+       </div>
+       <div id="collapseOne" class="accordion-body collapse">
+         <div class="accordion-inner">
+						<%= f.label :title, 'Title' %>
+						<%= f.text_field :title %>
+						<%= f.label :subtitle, 'Sub-title' %>
+						<%= f.text_field :subtitle %>
+						<%= f.label :genre, 'Genre' %>
+						<%= f.text_field :genre %>
+						<%= f.label :summary, 'Summary' %>
+						<%= f.text_area :summary %>
+						<br/><br/>
+						<%= f.submit 'Post', class: 'btn btn-large btn-primary' %>
+         </div>
+       </div>
+     </div>
 	</div>
-	<br/>
-	<%= f.submit 'Post', class: 'btn btn-large btn-primary' %>
+
 <% end %>

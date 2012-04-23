@@ -3,7 +3,17 @@
 		<%= link_to feed_item.user.name, feed_item.user %>
 	</span>
 	<span class='content'>
-		<%= feed_item.title %>
+		<!--List all of your book posts.-->
+		<b><%= feed_item.title.upcase %></b>
+		<br>				
+		<% if feed_item.subtitle %>
+			<%= feed_item.subtitle %>
+			<br/>
+		<% end %>	
+		<% if feed_item.genre %>
+			<%= feed_item.genre %>
+			<br/>
+		<% end %>
 		<%= feed_item.summary %>
 	</span>	
 	<span class='timestamp'>
