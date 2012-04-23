@@ -1,0 +1,41 @@
+<% provide(:title, 'Update Your Profile') %>
+<h1>Update Your Profile</h1>
+
+<div class='row form-vertical'>
+	<div class='span6 offset3'>
+		<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<h3>Account Information</h3>
+			<br/>
+				<%= f.label :name %>
+				<%= f.text_field :name %>
+			
+				<%= f.label :email, 'E-mail' %>
+				<%= f.text_field :email %>
+			<hr/>
+			<h3>Membership</h3>
+			<br/> 
+				<%= f.label :writer, 'Author', class: 'checkbox inline'%>
+				<%= f.check_box :writer %>
+			<br/>
+			<hr/>
+			<h3>Location</h3>
+			<br/> 
+				<%= f.label :city %>
+				<%= f.text_field :city %>
+				<%= f.label :state %>
+				<%= f.text_field :state %>
+			<hr/>
+			<h3>Verify your profile updates.</h3>
+			<br/>
+				<%= f.label :password %>
+				<%= f.password_field :password %>			
+				<%= f.label :password_confirmation, 'Confirm Password' %>
+				<%= f.password_field :password_confirmation %>
+			<br/>
+			<br/>
+			<%= f.submit 'Save Changes', class: 'btn btn-large btn-primary' %>
+			
+		<% end %>
+	</div>
+</div>

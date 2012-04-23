@@ -1,0 +1,21 @@
+<p>
+	
+	<% if @user.writer %>
+		Author
+	<% end %>
+	
+</p>	
+<p>	
+	
+	<!--Show city and state only if they're available-->
+	
+	<% if !@user.city.blank? && !@user.state.blank? %>			
+		<%= @user.city %>, <%= @user.state %>			
+	<% elsif !@user.city.blank? && @user.state.blank? %>
+		<%= @user.city %>			
+	<% elsif @user.city.blank? && !@user.state.blank? %>
+		<%= @user.state %>
+	<% else %>
+	<% end %>
+
+</p>

@@ -1,0 +1,9 @@
+<h1>
+	<a href="<%= user_path(current_user) %>"><%= current_user.name %></a>
+</h1>
+<span>
+	<%= link_to 'View My Profile', current_user %>
+</span>
+<span>
+	book <%= pluralize(current_user.book_posts.count, "post") %>
+</span>

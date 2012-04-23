@@ -1,0 +1,21 @@
+<% provide(:title, "| #{@user.name}") %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @user.name %>
+      </h1>
+			<%= render 'profile_info' %>
+    </section>
+  </aside>
+
+	<div class='span8'>
+		<% if @user.book_posts.any? %>
+			<h3>Book Posts (<%= @user.book_posts.count %>)</h3>
+			<ol class='microposts'>
+				<%= render @book_posts %>
+			</ol>
+			<%= will_paginate @book_posts %>
+		<% end %>
+	</div>
+</div>
