@@ -8,7 +8,7 @@ class BookPostsController < ApplicationController
       flash[:success] = 'Your book post has been created!'
       redirect_to root_path
     else
-      @feed_items = []
+      @book_post_items = []
       render 'static_pages/home'
     end
   end

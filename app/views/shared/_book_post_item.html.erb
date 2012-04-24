@@ -1,0 +1,27 @@
+<li id="<%= book_post_item.id %>">
+	<span class='user'>
+		<%= link_to book_post_item.user.name, book_post_item.user %>
+	</span>
+	<span class='content'>
+		<!--List all of your book posts.-->
+		<b><%= book_post_item.title.upcase %></b>
+		<br>				
+		<% if book_post_item.subtitle %>
+			<%= book_post_item.subtitle %>
+			<br/>
+		<% end %>	
+		<% if book_post_item.genre %>
+			<%= book_post_item.genre %>
+			<br/>
+		<% end %>
+		<%= book_post_item.summary %>
+	</span>	
+	<span class='timestamp'>
+		Posted <%= time_ago_in_words(book_post_item.created_at) %> ago.
+	</span>	
+	<% if current_user?(book_post_item.user) %>
+		<%= link_to "Delete", book_post_item, method:  :delete,
+	                                   confirm: "Sure about that?",
+	                                   title:   book_post_item.title %>
+  <% end %>
+</li>
