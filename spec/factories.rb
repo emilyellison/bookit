@@ -18,4 +18,9 @@ FactoryGirl.define do
     summary 'Example Summary'
     user
   end
+  
+  factory :book_bite do
+    bite 'Something about something.'
+    user
+  end
 end

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423182247) do
+ActiveRecord::Schema.define(:version => 20120424170142) do
+
+  create_table "book_bites", :force => true do |t|
+    t.string   "bite"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "book_bites", ["user_id", "created_at"], :name => "index_book_bites_on_user_id_and_created_at"
 
   create_table "book_posts", :force => true do |t|
     t.string   "title"
@@ -36,9 +45,10 @@ ActiveRecord::Schema.define(:version => 20120423182247) do
     t.string   "city"
     t.string   "state"
     t.boolean  "admin",           :default => false
-    t.boolean  "writer"
+    t.boolean  "writer",          :default => false
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end

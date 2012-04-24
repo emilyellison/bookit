@@ -19,6 +19,7 @@ describe User do
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:book_posts) }
+  it { should respond_to(:book_bites) }
   it { should respond_to(:feed) }
   
   it { should be_valid }
@@ -149,6 +150,29 @@ describe User do
       its(:feed) { should include(newer_book_post) }
       its(:feed) { should include(older_book_post) }
       its(:feed) { should_not include(unfollowed_post) }
+    end
+  end
+  
+  describe "book bite associations" do
+
+    before { @user.save }
+    let!(:older_book_bite) do 
+      FactoryGirl.create(:book_bite, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_book_bite) do
+      FactoryGirl.create(:book_bite, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right book bites in the right order" do
+      @user.book_bites.should == [newer_book_bite, older_book_bite]
+    end
+    
+    it "should destroy associated book bites" do
+      book_bites = @user.book_bites
+      @user.destroy
+      book_bites.each do |book_bite|
+        BookBite.find_by_id(book_bite.id).should be_nil
+      end
     end
   end
 
