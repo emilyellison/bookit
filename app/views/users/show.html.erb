@@ -7,15 +7,23 @@
       </h1>
 			<%= render 'profile_info' %>
     </section>
+		<section>
+			<% if @user.book_posts.any? %>
+				<h3>Books</h3>
+				<ol class='microposts'>
+					<%= render @book_posts %>
+				</ol>
+			<% end %>
+		</section>
   </aside>
 
 	<div class='span8'>
-		<% if @user.book_posts.any? %>
-			<h3>Book Posts (<%= @user.book_posts.count %>)</h3>
+		<% if @user.book_bites.any? %>
+			<h3>Book Bites (<%= @user.book_bites.count %>)</h3>
 			<ol class='microposts'>
-				<%= render @book_posts %>
+				<%= render @book_bites %>
 			</ol>
-			<%= will_paginate @book_posts %>
+			<%= will_paginate @book_bites %>
 		<% end %>
 	</div>
 </div>

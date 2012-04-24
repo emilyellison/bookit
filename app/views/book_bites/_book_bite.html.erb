@@ -1,0 +1,13 @@
+<li>
+  <span class="content">
+		<%= book_bite.bite %>	
+	</span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(book_bite.created_at) %> ago.
+  </span>
+	<% if current_user?(book_bite.user) %>
+		<% link_to 'Delete', book_bite, method: :delete,
+																		confirm: 'Sure about that?',
+																		title: book_bite.bite %>
+	<% end %>
+</li>

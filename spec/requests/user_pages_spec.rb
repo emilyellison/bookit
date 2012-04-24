@@ -54,7 +54,7 @@ describe "user pages" do
     it { should have_selector('title', text: 'BookBits | Sign Up') }
   end
   
-  describe 'profile page' do
+  describe 'profile page (book posts)' do
     let(:user) { FactoryGirl.create(:user) }
     let!(:m1) { FactoryGirl.create(:book_post, user: user, title: 'Foo', summary: 'Bar') }
     let!(:m2) { FactoryGirl.create(:book_post, user: user, title: 'Bar', summary: 'Foo') }
@@ -67,7 +67,24 @@ describe "user pages" do
     describe "book posts" do
       it { should have_content(m1.title) }
       it { should have_content(m2.title) }
-      it { should have_content(user.book_posts.count) }
+      # it { should have_content(user.book_posts.count) }
+    end
+  end
+  
+  describe "profile page (book bites)" do
+    let(:user) { FactoryGirl.create(:user) }
+    let!(:m1) { FactoryGirl.create(:book_bite, user: user, bite: "Foo") }
+    let!(:m2) { FactoryGirl.create(:book_bite, user: user, bite: "Bar") }
+
+    before { visit user_path(user) }
+
+    it { should have_selector('h1',    text: user.name) }
+    it { should have_selector('title', text: user.name) }
+
+    describe "book bites" do
+      it { should have_content(m1.bite) }
+      it { should have_content(m2.bite) }
+      it { should have_content(user.book_bites.count) }
     end
   end
   
